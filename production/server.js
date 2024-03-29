@@ -3,40 +3,67 @@ const fs = require('fs');
 const path = require('path');
 
 const server = http.createServer((req, res) => {
-  // Parse the URL to extract the file path
-  let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
-  console.log('File Path:', filePath); // Debug output
+    let filePath = '.' + req.url;
 
-  // Check if the requested file exists
-  fs.exists(filePath, (exists) => {
-    if (!exists) {
-      res.writeHead(404, { 'Content-Type': 'text/plain' });
-      res.end('404 Not Found');
-      return;
+    // Set default file to serve as index.html if the URL is '/'
+    if (filePath === './') {
+        filePath = './html_pages/index.html';
+    } else {
+        // Normalize file path to resolve relative paths
+        filePath = path.normalize(filePath);
+
+        // Define directories for static files
+        const staticDirs = ['styles', 'images', 'scripts'];
+
+        // Check if requested file is in a static directory
+        const isInStaticDir = staticDirs.some(dir => filePath.startsWith(path.normalize(`./${dir}`)));
+
+        if (!isInStaticDir) {
+            // Append '/html_pages' to the file path if it doesn't already start with it
+            if (!filePath.startsWith(path.normalize('./html_pages'))) {
+                filePath = path.join(__dirname, 'html_pages', filePath);
+            }
+        }
     }
 
-    // Read the file and serve it
-    fs.readFile(filePath, (err, data) => {
-      if (err) {
-        res.writeHead(500, { 'Content-Type': 'text/plain' });
-        res.end('Internal Server Error');
-        return;
-      }
+    const extname = path.extname(filePath);
+    let contentType = 'text/html';
 
-      // Set the appropriate Content-Type header based on the file extension
-      const contentType = {
-        '.html': 'text/html',
-        '.css': 'text/css',
-        '.js': 'text/javascript'
-      }[path.extname(filePath)];
+    // Determine content type based on file extension
+    switch (extname) {
+        case '.js':
+            contentType = 'text/javascript';
+            break;
+        case '.css':
+            contentType = 'text/css';
+            break;
+        case '.jpeg':
+        case '.jpg':
+            contentType = 'image/jpeg';
+            break;
+    }
 
-      res.writeHead(200, { 'Content-Type': contentType });
-      res.end(data);
+    fs.readFile(filePath, (err, content) => {
+        if (err) {
+            if (err.code === 'ENOENT') {
+                // Page not found
+                res.writeHead(404, { 'Content-Type': 'text/html' });
+                res.end('<h1>404 Not Found</h1><p>The page you are looking for does not exist.</p>');
+            } else {
+                // Server error
+                res.writeHead(500);
+                res.end(`Server Error: ${err.code}`);
+            }
+        } else {
+            // Success
+            res.writeHead(200, { 'Content-Type': contentType });
+            res.end(content, 'utf8');
+        }
     });
-  });
 });
 
-server.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000');
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
  

@@ -1,4 +1,6 @@
 /* Add your CSS styles here */
+
+/* Body styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -8,6 +10,7 @@ body {
     text-align: center;
 }
 
+/* Header styles */
 header {
     background-color: #333;
     color: #fff;
@@ -18,12 +21,14 @@ h1 {
     margin: 0;
 }
 
+/* Container styles */
 .container {
     max-width: 800px;
     margin: 20px auto;
     padding: 0 20px;
 }
 
+/* Content styles */
 .content {
     background-color: #fff;
     padding: 20px;
@@ -31,6 +36,7 @@ h1 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Footer styles */
 footer {
     background-color: #333;
     color: #fff;
@@ -52,5 +58,26 @@ ul {
 
 li {
     color: #f39c12; /* Orange */
+}
+
+/* Navigation styles */
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    background-color: #333; /* Background color for unhovered state */
+}
+
+.navbar a:hover {
+    background-color: #fff; /* Background color on hover */
+    color: #333; /* Text color on hover */
 }
  
