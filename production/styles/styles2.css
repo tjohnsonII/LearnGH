@@ -1,1 +1,262 @@
-//talet style sheet
+//about me style sheet
+
+/* Common styles for all screen sizes */
+/* Add your common CSS styles here */
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+    /* Add desktop-specific styles here */
+    .main-heading {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom, #2980b9, #ffffff, #2c3e50);
+        color: #333; /* Change text color to black for better readability */
+        text-align: center;
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+    }
+
+    h1 {
+        margin: 0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 0 20px;
+    }
+
+    .content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Custom styles for paragraph */
+    .about-me-paragraph {
+        font-size: 18px;
+        line-height: 1.6;
+        text-align: justify;
+        margin-top: 20px;
+    }
+
+    .about-me-paragraph span {
+        font-weight: bold;
+        color: #2ecc71; /* Green */
+    }
+
+    footer {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+    }
+
+    h2 {
+        color: #2ecc71; /* Green */
+    }
+
+    p {
+        color: #e74c3c; /* Red */
+    }
+
+    ul {
+        color: #3498db; /* Blue */
+    }
+
+    li {
+        color: #f39c12; /* Orange */
+    }
+
+    .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar li {
+            display: inline;
+        }
+
+        .navbar a {
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            background-color: #333; /* Background color for unhovered state */
+        }
+
+        .navbar a:hover {
+            background-color: #fff; /* Background color on hover */
+            color: #333; /* Text color on hover */
+        }
+}
+
+/* Tablet styles */
+@media (max-width: 1023px) {
+    /* Add tablet-specific styles here */
+
+    /* Adjust font size for tablets */
+    .main-heading {
+        font-size: 24px;
+        background: linear-gradient(to bottom, #2980b9, #ffffff, #2c3e50);
+        color: #333; /* Change text color to black for better readability */
+    }
+
+    /* Adjust container width for tablets */
+    .container {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    /* Reduce padding for header, content, and footer */
+    header {
+        padding: 10px 0;
+        background-color: #333; /* Dark background color */
+        color: #fff; /* White text color */
+    }
+
+    .content {
+        padding: 20px;
+        background-color: #fff; /* White background color */
+        color: #333; /* Dark text color */
+    }
+
+    footer {
+        padding: 10px 0;
+        background-color: #333; /* Dark background color */
+        color: #fff; /* White text color */
+    }
+    
+    h2 {
+        color: #2ecc71; /* Green */
+    }
+
+    p {
+        color: #e74c3c; /* Red */
+    }
+
+    ul {
+        color: #3498db; /* Blue */
+    }
+
+    li {
+        color: #f39c12; /* Orange */
+    }
+    /* Adjust navigation links for tablets */
+    .navbar {
+            background-color: #333; /* Dark background color */
+            overflow: auto; /* Clear the floats */
+            text-align: center; /* Center align the links */
+    }
+    
+    .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+    }
+    
+    .navbar li {
+            display: inline;
+            padding: 0 10px; /* Add horizontal padding */
+    }
+    
+    .navbar a {
+        padding: block;
+        color: #fff; /* White text color */
+        background-color: #333; /* Dark background color */
+    }
+    
+    .navbar a:hover {
+        background-color: #fff; /* Background color on hover */
+        color: #333; /* Text color on hover */
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    /* Add mobile-specific styles here */
+
+    /* Adjust font size for mobile devices */
+    .main-heading {
+        font-size: 20px;
+        background: linear-gradient(to bottom, #2980b9, #ffffff, #2c3e50);
+        color: #333; /* Change text color to black for better readability */
+    }
+
+    /* Adjust container width for mobile devices */
+    .container {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    /* Reduce padding for header, content, and footer */
+    header {
+        padding: 5px 0;
+        background-color: #333; /* Dark background color */
+        color: #fff; /* White text color */
+    }
+
+    .content {
+        padding: 10px;
+        background-color: #fff; /* White background color */
+        color: #333; /* Dark text color */
+    }
+
+    footer {
+        padding: 5px 0;
+        background-color: #333; /* Dark background color */
+        color: #fff; /* White text color */
+    }
+    
+    h2 {
+        color: #2ecc71; /* Green */
+    }
+
+    p {
+        color: #e74c3c; /* Red */
+    }
+
+    ul {
+        color: #3498db; /* Blue */
+    }
+
+    li {
+        color: #f39c12; /* Orange */
+    }
+    /* Adjust navigation links for mobile devices */
+    .navbar {
+            background-color: #333; /* Dark background color */
+            overflow: auto; /* Clear the floats */
+            text-align: center; /* Center align the links */
+    }
+
+    .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+    }
+
+    .navbar li {
+            display: inline;
+            padding: 0 5px; /* Add horizontal padding */
+    }
+
+    .navbar a {
+        padding: 8px 12px;
+        color: #fff; /* White text color */
+        background-color: #333; /* Dark background color */
+    }
+    
+    .navbar a:hover {
+        background-color: #fff; /* Background color on hover */
+        color: #333; /* Text color on hover */
+    }
+}
+
