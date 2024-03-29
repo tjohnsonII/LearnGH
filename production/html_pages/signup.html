@@ -20,7 +20,8 @@
     </header>
     <div class="container">
         <div class="content">
-            <form action="../html_pages/submitted.html" onsubmit="saveFormInputToFile()"> <!-- Call saveFormInputToFile() when the form is submitted -->
+            <form id="signupForm" action="../html_pages/submitted.html" onsubmit="saveToDatabase(); return saveFormInputToFile();">
+ <!-- Call saveFormInputToFile() when the form is submitted -->
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required><br><br>
                 <label for="email">Email:</label>
@@ -34,5 +35,6 @@
     <footer>
         <p>&copy; 2024 My Website. All rights reserved.</p>
     </footer>
+    <script src="../scripts/script2.js"></script>
 </body>
 </html>
